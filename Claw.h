@@ -28,8 +28,8 @@ void Claw::setup(uint8_t pin) {
 }
 
 
-void Claw::close() {
-  for (_pos = CLAW_OPEN; _pos <= CLAW_CLOSE; _pos += 5) { // goes from 0 degrees to 180 degrees
+void Claw::open() {
+  for (_pos = CLAW_CLOSE; _pos <= CLAW_OPEN; _pos += 5) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
     servo.write(_pos); // tell servo to go to position in variable '_pos'
     delay(CLAW_DELAY);                       // waits 15ms for the servo to reach the position
@@ -37,8 +37,8 @@ void Claw::close() {
 }
 
 
-void Claw::open() {
-  for (_pos = CLAW_CLOSE; _pos >= CLAW_OPEN; _pos -= 5) { // goes from 180 degrees to 0 degrees
+void Claw::close() {
+  for (_pos = CLAW_OPEN; _pos >= CLAW_CLOSE; _pos -= 5) { // goes from 180 degrees to 0 degrees
     servo.write(_pos);              // tell servo to go to position in variable '_pos'
     delay(CLAW_DELAY);                       // waits 15ms for the servo to reach the position
   }

@@ -184,7 +184,7 @@ void DriveSystem::brake() {
     _dc_m_r_speed= 0;
     _dc_m_r_dir = RELEASE;
     _dc_m_l_dir = RELEASE;
-    delay(BRAKE_DELAY);
+    delay(100);
 }
 
 
@@ -224,20 +224,18 @@ void DriveSystem::steer(uint8_t speed, bool left, float steer_factor=STEER_FACTO
 
 
 void DriveSystem::test() {
-    Serial.println("TESTING.");
-
+    Serial.println("------- DRIVE SYSTEM TEST -------");
     int speed = 200;
     forward(speed);
-    delay(10000);
+    delay(3000);
     backward(speed);
-    delay(10000);
+    delay(3000);
     rotate(speed, true);
-    delay(10000);
+    delay(3000);
     rotate(speed, false);
-    delay(10000);
+    delay(3000);
     brake();
-    Serial.println("Drive system fine.");
-}
+    Serial.println("------- TEST PASSED -------"); }
 
 
 
