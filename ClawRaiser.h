@@ -45,7 +45,7 @@ void ClawRaiser::search() {
 void ClawRaiser::down(int angle=CLAW_RAISER_DOWN) {
   for (_pos = _pos; _pos >= angle; _pos -= 5) { // goes from 180 degrees to 0 degrees
     servo.write(_pos);              // tell servo to go to position in variable '_pos'
-    delay(CLAW_RAISER_DELAY);                       // waits 15ms for the servo to reach the position
+    delay(100);                       // waits 15ms for the servo to reach the position
   }
 }
 

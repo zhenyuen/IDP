@@ -80,9 +80,9 @@ void Accelerometer::update_state() {
       
   }
   //Serial.println("------------------");
-
-  Serial.println("SCORE IS");
-  Serial.println(score);
+//
+//  Serial.println("SCORE IS");
+//  Serial.println(score);
   int limit = ACC_HIST_LEN / 2;
   if (score > limit) {
     if (_state == NORMAL_STATE) {
