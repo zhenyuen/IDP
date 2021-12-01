@@ -90,9 +90,9 @@ uint8_t DummyDetectionSystem::identify_dummy() {
         _max = scores[2];
         type = DUMMY_ALTERNATING;
     }
-    Serial.print(scores[0]);
-    Serial.print(scores[1]);
-    Serial.print(scores[2]);
+//    Serial.print(scores[0]);
+//    Serial.print(scores[1]);
+//    Serial.print(scores[2]);
     return type;
 }
 
