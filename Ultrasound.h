@@ -1,7 +1,6 @@
 #ifndef Ultrasound_h
 #define Ultrasound_h
 
-
 #include <Arduino.h>
 #include "Config.h"
 

@@ -63,7 +63,6 @@ uint8_t DummyDetectionSystem::identify_dummy() {
                 analog = _pt_m -> read();
                 ir = _ir_receiver -> read();
             }
-            // Serial.println("Detected.");
             if (ir) {
                 pulses++;
             }
@@ -78,9 +77,9 @@ uint8_t DummyDetectionSystem::identify_dummy() {
         }
     }
     
+    // Selecting ID of dummy based on score (Highest)
     uint8_t _max = scores[0];
     uint8_t type = DUMMY_MODULATED;
-
     if (scores[1] > _max) {
         _max = scores[1];
         type = DUMMY_UNMODULATED;
@@ -90,9 +89,6 @@ uint8_t DummyDetectionSystem::identify_dummy() {
         _max = scores[2];
         type = DUMMY_ALTERNATING;
     }
-//    Serial.print(scores[0]);
-//    Serial.print(scores[1]);
-//    Serial.print(scores[2]);
     return type;
 }
 

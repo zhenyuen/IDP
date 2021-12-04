@@ -37,6 +37,7 @@ void ClawRaiser::up() {
   }
 }
 
+
 void ClawRaiser::search() {
   servo.write(CLAW_RAISER_SEARCH);
 }

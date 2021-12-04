@@ -60,10 +60,8 @@ void Accelerometer::setup(uint8_t pin) {
 void Accelerometer::update_state() {
   int score = 0;
   get_ay();
-  //Serial.println("------------------");
 
   for (int i = 0; i < ACC_HIST_LEN; i++) {
-    //Serial.println(_acc_hist[i]);
     if (_state == NORMAL_STATE) {
       if (_acc_hist[i] <= ASCEND_THRESHOLD) {
         score++;
@@ -77,12 +75,8 @@ void Accelerometer::update_state() {
         score++;
       }
     }
-      
   }
-  //Serial.println("------------------");
-//
-//  Serial.println("SCORE IS");
-//  Serial.println(score);
+
   int limit = ACC_HIST_LEN / 2;
   if (score > limit) {
     if (_state == NORMAL_STATE) {
@@ -96,6 +90,7 @@ void Accelerometer::update_state() {
     }
   }
 }
+
 
 int Accelerometer::_get_index() {
   int i = _index;

@@ -4,10 +4,10 @@
 
 #include <Arduino.h>
 
-#define DEBUG_MODE true
+#define DEBUG_MODE false // True to enable verbose for debugging
 
-#define DC_M_L_PIN 4
-#define DC_M_R_PIN 3
+#define DC_M_L_PIN 3
+#define DC_M_R_PIN 4
 #define LS_B_PIN 5
 #define LS_FM_PIN 4
 #define LS_FL_PIN 3
@@ -48,24 +48,24 @@
 #define ASCEND_STATE 2
 #define DESCEND_STATE 3
 #define ELEVATED_STATE 4
-#define ASCEND_THRESHOLD -3
-#define DESCEND_THRESHOLD 3
-#define ACC_HIST_LEN 11
+#define ASCEND_THRESHOLD -3.8
+#define DESCEND_THRESHOLD 3.8
+#define ACC_HIST_LEN 9
 #define ROTATE_90 1500
 #define ROTATE_180 3000
 #define N_DUMMIES 3
 #define FAILURE_LIMIT 2
 #define OFF_LINE_THRESHOLD 3000
-#define TIME_FROM_SLOPE 750
+#define TIME_FROM_SLOPE 500
 #define TIME_MOVE_INTO_BOX 2000
 #define TIME_REALIGN_FORWARD 1000
 #define TIME_REALIGN_BACKWARD 2000
 #define TIME_REALIGN_TO_DUMMY_ACW 1000
 #define TIME_REALIGN_TO_DUMMY_DELAY 75
 #define TIME_REALIGN_TO_DUMMY_INTERVAL 100
-#define TIME_LS_TRIGGER 70
+#define TIME_LS_TRIGGER 75
 
-// Tasks
+// Tasks ID
 #define EXIT_BOX 0
 #define HEAD_TO_COLLECTION_AREA 1
 #define DETECT_DUMMY 2
@@ -78,7 +78,7 @@
 #define EXIT_RBBOX 9
 #define RETURN_FROM_LOC_0 10
 #define RETURN_FROM_LOC_1 11
-#define COMPLETED 100
+#define COMPLETED 1000
 
 
 

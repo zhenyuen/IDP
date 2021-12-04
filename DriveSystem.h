@@ -4,8 +4,6 @@
 #include <Arduino.h>
 #include <Adafruit_MotorShield.h>
 #include "Config.h"
-//#include <PhotoInterrupter.h>
-
 
 
 class DriveSystem
@@ -32,9 +30,6 @@ class DriveSystem
     void test();
 
   private:
-    //PhotoInterrupter* _pi_l;
-    //PhotoInterrupter* _pi_r;
-
     unsigned long _dc_m_l_rotations;
     unsigned long _dc_m_r_rotations;
 
@@ -56,16 +51,10 @@ void DriveSystem::setup(Adafruit_MotorShield* afms, uint8_t dc_m_l_pin, uint8_t 
     _afms = afms;
     _dc_m_l = afms -> getMotor(dc_m_l_pin);
     _dc_m_r = afms -> getMotor(dc_m_r_pin);
-    // _pi_l = pi_l;
-    // _pi_l = pi_r;
-    // brake();
 }
 
 
 void DriveSystem::forward(uint8_t speed) {
-    // _pi_l -> set_forward(true);
-    // _pi_r -> set_forward(true);
-
     _rotating = false;
     _steering = false;
     _forward = true;
@@ -84,9 +73,6 @@ void DriveSystem::forward(uint8_t speed) {
 
 
 void DriveSystem::backward(uint8_t speed) {
-    // _pi_l -> set_forward(false);
-    // _pi_r -> set_forward(false);
-
     _rotating = false;
     _steering = false;
     _forward = false;
@@ -150,15 +136,11 @@ void DriveSystem::rotate(uint8_t speed, bool cw) {
     _dc_m_r -> setSpeed(speed);
     
     if (cw) {
-        // _pi_l -> set_forward(true);
-        // _pi_r -> set_forward(false);
         _dc_m_r -> run(BACKWARD);
         _dc_m_l -> run(FORWARD);
         _dc_m_r_dir = BACKWARD;
         _dc_m_l_dir = FORWARD;
     } else {
-        // _pi_l -> set_forward(false);
-        // _pi_r -> set_forward(true);
         _dc_m_r -> run(FORWARD);
         _dc_m_l -> run(BACKWARD);
         _dc_m_r_dir = FORWARD;
@@ -189,9 +171,6 @@ void DriveSystem::brake() {
 
 
 void DriveSystem::steer(uint8_t speed, bool left, float steer_factor=STEER_FACTOR, bool forward=true) {
-    // _pi_l -> set_forward(true);
-    // _pi_r -> set_forward(true);
-
     _rotating = false;
     _steering = true;
     _forward = false;
@@ -235,10 +214,7 @@ void DriveSystem::test() {
     rotate(speed, false);
     delay(3000);
     brake();
-    Serial.println("------- TEST PASSED -------"); }
-
-
-
-
+    Serial.println("------- TEST PASSED -------"); 
+}
 
 #endif

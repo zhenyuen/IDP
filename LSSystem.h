@@ -1,6 +1,7 @@
 #ifndef SensorSystem_h
 #define SensorSystem_h
 
+// DEPRECATED
 
 #include <Arduino.h>
 #include <Config.h>

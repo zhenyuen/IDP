@@ -1,11 +1,11 @@
 #ifndef SensorSystem_h
 #define SensorSystem_h
 
+// DEPRECATED
 
 #include <Arduino.h>
 #include "LineSensor.h"
 #include "Accelerometer.h"
-//#include <PhotoInterrupter.h>
 #include "Config.h"
 
 class SensorSystem {
@@ -45,7 +45,6 @@ void SensorSystem::add_ls(LineSensor* ls_b, LineSensor* ls_fm, LineSensor* ls_fl
 
 void SensorSystem::refresh() {
     int index = _get_ls_index();
-    //Serial.println(index);
     _ls_hist[index][0] = _ls_b -> read();
     _ls_hist[index][1] = _ls_fm -> read();
     _ls_hist[index][2] = _ls_fl -> read();
@@ -73,11 +72,6 @@ void SensorSystem::get_line_sensors(bool readings[4]) {
         ls_fl_score += _ls_hist[i][2];
         ls_fr_score += _ls_hist[i][3];
     }
-    // Serial.println(ls_b_score);
-    // Serial.println(ls_fm_score);
-    // Serial.println(ls_fl_score);
-    // Serial.println(ls_fr_score);
-
     readings[0] = true? ls_b_score >= threshold : false;
     readings[1] = true? ls_fm_score >= threshold : false;
     readings[2] = true? ls_fl_score >= threshold : false;
